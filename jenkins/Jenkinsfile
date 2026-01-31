@@ -1,0 +1,36 @@
+pipeline {
+  agent any
+
+  stages {
+
+    stage('Checkout') {
+      steps {
+        git 'https://github.com/tris142/secure-ci-cd-devsecops-pipeline.git'
+      }
+    }
+
+    stage('Code Quality - SonarQube') {
+      steps {
+        sh 'sonar-scanner'
+      }
+    }
+
+    stage('Build Docker Image') {
+      steps {
+        sh 'docker build -t devsecops-app -f docker/Dockerfile .'
+      }
+    }
+
+    stage('Security Scan - Trivy') {
+      steps {
+        sh 'trivy image devsecops-app'
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        sh 'docker run -d -p 80:80 devsecops-app'
+      }
+    }
+  }
+}
