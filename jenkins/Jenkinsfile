@@ -12,8 +12,10 @@ pipeline {
 
     stage('Code Quality - SonarQube') {
       steps {
-        sh 'sonar-scanner'
-      }
+        withSonarQubeEnv('sonar') {
+           sh 'sonar-scanner'
+         }
+       }
     }
 
     stage('Build Docker Image') {
