@@ -1,10 +1,248 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>DevSecOps Demo App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trishalaa B | AWS / DevOps / DevSecOps Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #020617, #1e293b);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #cbd5f5;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #2563eb;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #1d4ed8;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      color: #93c5fd;
+    }
+
+    .about {
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #020617;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: #bfdbfe;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .project h3 {
+      margin-bottom: 10px;
+      color: #bfdbfe;
+    }
+
+    .project ul {
+      padding-left: 18px;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      margin: 10px 0;
+    }
+
+    footer {
+      background: #020617;
+      text-align: center;
+      padding: 20px;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-  <h1>Secure CI/CD Pipeline</h1>
-  <p>Deployed using Jenkins, SonarQube, Trivy, Docker, and AWS</p>
-       <p>Built and deployed a secure CI/CD pipeline using Jenkins, SonarQube, Trivy, Docker, and AWS EC2 with automated code quality and vulnerability scanning.</p>
+
+  <!-- Header -->
+  <header>
+    <h1>Trishalaa B</h1>
+    <p>AWS Cloud / DevOps / DecSevOps Engineer (Fresher)</p>
+    <p>CI/CD | Cloud Automation | Jenkins | Docker | Kubernetes | Terraform | SonarQube</p>
+    <a href="#contact" class="btn">Contact Me</a>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about">
+      <p>
+        I am a motivated AWS and DevOps fresher with hands-on experience in cloud infrastructure, CI/CD pipelines, and automation tools. I have worked on real-time projects involving Jenkins, Docker, Kubernetes, and AWS services. I am actively seeking an entry-level opportunity to grow as a Cloud & DevOps Engineer.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills">
+      <div class="card">
+        <h3>Cloud</h3>
+        <p>AWS (EC2, S3, IAM, VPC, ALB, ASG, RDS, CloudFront, CloudWatch)</p>
+      </div>
+
+      <div class="card">
+        <h3>DevOps</h3>
+        <p>Jenkins, Docker, Kubernetes, Git/GitHub, Terraform, Ansible</p>
+      </div>
+
+      <div class="card">
+        <h3>CI/CD & IaC</h3>
+        <p>CI/CD Pipelines, Infrastructure as Code, Automation</p>
+      </div>
+
+      <div class="card">
+        <h3>DevSecOps & Security</h3>
+        <p>Shift-left security, SonarQube, Trivy, IAM leastprivilege (Basic).</p>
+      </div>
+      
+      <div class="card">
+        <h3>Programming</h3>
+        <p>Python (Basic), Shell Scripting, YAML</p>
+      </div>
+
+      <div class="card">
+        <h3>Monitoring</h3>
+        <p>CloudWatch, Grafana (Basic)</p>
+      </div>
+
+      <div class="card">
+        <h3>OS</h3>
+        <p>Linux (Ubuntu, Amazon Linux)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+
+      <div class="card project">
+        <h3>AWS CI/CD Pipeline</h3>
+        <p><strong>Technologies:</strong> AWS, Jenkins, CodePipeline, Docker</p>
+        <ul>
+          <li>Built automated CI/CD pipeline for web application deployment.</li>
+          <li>Integrated Jenkins with AWS CodeDeploy.</li>
+          <li>Deployed on EC2 with ALB and Auto Scaling.</li>
+          <li>Improved deployment reliability and speed.</li>
+        </ul>
+      </div>
+
+      <div class="card project">
+        <h3>Maven App CI/CD</h3>
+        <p><strong>Technologies:</strong> Jenkins, Docker, Kubernetes, AWS EC2</p>
+        <ul>
+          <li>Automated build and deployment of Java applications.</li>
+          <li>Containerized applications using Docker.</li>
+          <li>Managed Kubernetes deployments.</li>
+          <li>Used Tomcat for hosting.</li>
+        </ul>
+      </div>
+
+      <div class="card project">
+        <h3>Secure CI/CD Pipeline – DevSecOps Project</h3>
+        <p><strong>Technologies:</strong>  Jenkins, SonarQube, Trivy, Docker, AWS EC2 </p>
+        <ul>
+          <li>Automated CI/CD pipeline implemented using Jenkins to build, test, scan, and deploy.</li>
+          <li>Integrated SonarQube for static code analysis and quality checks.</li>
+          <li>Implemented Trivy for container vulnerability scanning(DevSecOps).</li>
+          <li>Followed shift-left security by embedding security checks early in the pipeline.</li>
+        </ul>
+      </div>
+      
+      <div class="card project">
+        <h3>Netflix Clone on AWS</h3>
+        <p><strong>Technologies:</strong> CloudFormation, ALB, ASG, RDS, Node.js</p>
+        <ul>
+          <li>Designed three-tier cloud architecture.</li>
+          <li>Provisioned infrastructure using CloudFormation.</li>
+          <li>Integrated frontend, backend, and database.</li>
+          <li>Ensured high availability and scalability.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <p>📞 +91-6379685015 / WhatsApp +91-9655651110 </p>
+      <p>📧 trishalaababu@gmail.com</p>
+      <p>🔗 linkedin.com/in/trishalaa-babu</p>
+      <p>📂 GitHub: github.com/Tris142</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Trishalaa B | AWS & DevOps Portfolio</p>
+  </footer>
+
 </body>
 </html>
