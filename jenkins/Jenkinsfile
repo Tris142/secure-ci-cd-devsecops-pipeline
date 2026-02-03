@@ -1,49 +1,54 @@
 pipeline {
-  agent any
+    agent any
 
-  stages {
-
-    stage('Checkout') {
-      steps {
-        git branch: 'main',
-           url: 'https://github.com/tris142/secure-ci-cd-devsecops-pipeline.git'
-      }
+    environment {
+        IMAGE_NAME = "secure-devsecops-app"
     }
 
-    stage('Build with Maven') {
+    stages {
+
+        stage('Checkout Code') {
             steps {
-                sh 'mvn clean package'
-      }
-    }
-    
-    stage('SonarQube Analysis') {
+                git 'https://github.com/Tris142/secure-ci-cd-devsecops-pipeline.git'
+            }
+        }
+
+        stage('SonarQube Scan') {
             steps {
                 withSonarQubeEnv('sonar-server') {
-                    sh '''
-                    mvn sonar:sonar \
-                    -Dsonar.projectKey=secure-app \
-                    -Dsonar.host.url=http://localhost:9000
-                    '''
-         }
-      }
-   }
+                    sh 'sonar-scanner'
+                }
+            }
+        }
 
-    stage('Build Docker Image') {
-      steps {
-        sh 'docker build -t devsecops-app -f docker/Dockerfile .'
-      }
-    }
+        stage('Trivy Filesystem Scan') {
+            steps {
+                sh 'trivy fs --severity HIGH,CRITICAL .'
+            }
+        }
 
-    stage('Security Scan - Trivy') {
-      steps {
-        sh 'trivy image devsecops-app'
-      }
-    }
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t $IMAGE_NAME .'
+            }
+        }
 
-    stage('Deploy') {
-      steps {
-        sh 'docker run -d -p 80:80 devsecops-app'
-      }
+        stage('Trivy Image Scan') {
+            steps {
+                sh 'trivy image --severity HIGH,CRITICAL $IMAGE_NAME'
+            }
+        }
+
+        stage('Deploy Container') {
+            steps {
+                sh '''
+                docker rm -f secure-devsecops || true
+                docker run -d \
+                --name secure-devsecops \
+                -p 80:80 \
+                $IMAGE_NAME
+                '''
+            }
+        }
     }
-  }
 }
