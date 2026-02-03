@@ -9,7 +9,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/Tris142/secure-ci-cd-devsecops-pipeline.git'
+                git branch: 'main', url: 'https://github.com/Tris142/secure-ci-cd-devsecops-pipeline.git'
             }
         }
 
