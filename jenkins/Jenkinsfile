@@ -10,13 +10,23 @@ pipeline {
       }
     }
 
-    stage('Code Quality - SonarQube') {
-      steps {
-        withSonarQubeEnv('sonar') {
-           sh 'sonar-scanner'
-         }
-       }
+    stage('Build with Maven') {
+            steps {
+                sh 'mvn clean package'
+      }
     }
+    
+    stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('sonar-server') {
+                    sh '''
+                    mvn sonar:sonar \
+                    -Dsonar.projectKey=secure-app \
+                    -Dsonar.host.url=http://localhost:9000
+                    '''
+         }
+      }
+   }
 
     stage('Build Docker Image') {
       steps {
