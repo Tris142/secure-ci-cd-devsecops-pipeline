@@ -227,27 +227,22 @@ Configure Pipeline from SCM
 
 Click Save.
 
-```
-
-```
+---
 
 ## ✅ Final Output
 
-SonarQube analysis report generated
-
-Trivy filesystem & image scan completed
-
-Docker image built successfully
-
-Application deployed on AWS EC2
+* SonarQube analysis report generated
+* Trivy filesystem & image scan completed
+* Docker image built successfully
+* Application deployed on AWS EC2
 
 Access application:
 
+```
 http://EC2_PUBLIC_IP
-
 ```
 
-```
+---
 
 ## 🧠 Conclusion
 
