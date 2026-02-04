@@ -39,7 +39,7 @@ Security is enforced using **shift-left DevSecOps practices**.
 
 **AMI:** Ubuntu 22.04 LTS
 **Instance Type:** t2.medium
-**Storage:** 15–20 GB
+**Storage:** 20 GB
 
 ### Security Group Ports
 
