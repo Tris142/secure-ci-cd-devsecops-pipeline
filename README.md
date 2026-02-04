@@ -224,6 +224,7 @@ Configure Pipeline from SCM
 * Repository URL: https://github.com/Tris142/secure-ci-cd-devsecops-pipeline.git
 * Branch: */main
 * Script Path: Jenkinsfile
+
 Click Save.
 
 ```
