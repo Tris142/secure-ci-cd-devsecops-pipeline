@@ -215,7 +215,7 @@ In this step, Jenkins pulls the pipeline definition directly from the GitHub rep
 * Create Jenkins Pipeline Job
 * Go to Jenkins Dashboard → New Item
 * Job Name: devsecops
-Select Pipeline → Click OK
+* Select Pipeline → Click OK
 
 Configure Pipeline from SCM
 * Scroll to Pipeline section
@@ -229,7 +229,9 @@ Click Save.
 
 ```
 
-✅ Final Output
+```
+
+## ✅ Final Output
 
 SonarQube analysis report generated
 
@@ -243,7 +245,11 @@ Access application:
 
 http://EC2_PUBLIC_IP
 
-🧠 Conclusion
+```
+
+```
+
+## 🧠 Conclusion
 
 Built a secure CI/CD DevSecOps pipeline using Jenkins, SonarQube, Trivy, Docker, and AWS EC2 to automate static code analysis, vulnerability scanning, containerization, and deployment following shift-left security practices.
 
