@@ -229,8 +229,6 @@ Click Save.
 
 ```
 
-
-
 ## ✅ Final Output
 
 * SonarQube analysis report generated
@@ -243,8 +241,6 @@ Access application:
 ```
 http://EC2_PUBLIC_IP
 ```
-
----
 
 ## 🧠 Conclusion
 
