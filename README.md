@@ -209,63 +209,23 @@ Save changes.
 
 ## 🔹 Step 10: Jenkins Pipeline Script
 
-Create a Jenkins **Pipeline Job** and use the script below:
+Create a Jenkins **Pipeline Job** and use the Jenkins file:
 
-```groovy
-pipeline {
-    agent any
+In this step, Jenkins pulls the pipeline definition directly from the GitHub repository using Pipeline from SCM.
+* Create Jenkins Pipeline Job
+* Go to Jenkins Dashboard → New Item
+* Job Name: devsecops
+Select Pipeline → Click OK
 
-    environment {
-        IMAGE_NAME = "secure-devsecops-app"
-    }
+Configure Pipeline from SCM
+* Scroll to Pipeline section
+* Definition: Pipeline script from SCM
+* SCM: Git
+* Repository URL: https://github.com/Tris142/secure-ci-cd-devsecops-pipeline.git
+* Branch: */main
+* Script Path: Jenkinsfile
+Click Save.
 
-    stages {
-
-        stage('Checkout Code') {
-            steps {
-                git 'https://github.com/Tris142/secure-ci-cd-devsecops-pipeline.git'
-            }
-        }
-
-        stage('SonarQube Scan') {
-            steps {
-                withSonarQubeEnv('sonar-server') {
-                    sh 'sonar-scanner'
-                }
-            }
-        }
-
-        stage('Trivy Filesystem Scan') {
-            steps {
-                sh 'trivy fs --severity HIGH,CRITICAL .'
-            }
-        }
-
-        stage('Docker Build') {
-            steps {
-                sh 'docker build -t $IMAGE_NAME .'
-            }
-        }
-
-        stage('Trivy Image Scan') {
-            steps {
-                sh 'trivy image --severity HIGH,CRITICAL $IMAGE_NAME'
-            }
-        }
-
-        stage('Deploy Application') {
-            steps {
-                sh '''
-                docker rm -f secure-devsecops || true
-                docker run -d \
-                --name secure-devsecops \
-                -p 80:80 \
-                $IMAGE_NAME
-                '''
-            }
-        }
-    }
-}
 ```
 
 ---
