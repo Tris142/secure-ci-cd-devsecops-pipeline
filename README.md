@@ -229,23 +229,23 @@ Click Save.
 
 ```
 
-## ✅ Final Output
+✅ Final Output
 
-* SonarQube analysis report generated
-* Trivy filesystem & image scan completed
-* Docker image built successfully
-* Application deployed on AWS EC2
+SonarQube analysis report generated
+
+Trivy filesystem & image scan completed
+
+Docker image built successfully
+
+Application deployed on AWS EC2
 
 Access application:
 
-```
 http://EC2_PUBLIC_IP
-```
 
-## 🧠 Conclusion
+🧠 Conclusion
 
 Built a secure CI/CD DevSecOps pipeline using Jenkins, SonarQube, Trivy, Docker, and AWS EC2 to automate static code analysis, vulnerability scanning, containerization, and deployment following shift-left security practices.
-
 
 ## 👩‍💻 Author
 
