@@ -50,7 +50,7 @@ Security is enforced using **shift-left DevSecOps practices**.
 80    Application
 ```
 
-### Connect to EC2
+### Connect to EC2 (Putty)
 
 ```bash
 ssh -i key.pem ubuntu@EC2_PUBLIC_IP
